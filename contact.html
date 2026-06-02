@@ -4,72 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Luiz P. Gressmann by email, LinkedIn, or GitHub.">
+    <meta property="og:title" content="Contact | Luiz P. Gressmann">
+    <meta property="og:description" content="Email, LinkedIn, and GitHub contact links.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luizgressmann.github.io/contact.html">
+    <meta name="twitter:card" content="summary">
     <title>contact | Luiz P. Gressmann</title>
-    <link rel="icon" type="image/x-icon" href="/images/start.svg">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/nebula.png">
+    <link rel="canonical" href="https://luizgressmann.github.io/contact.html">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <nav>
         <ul class="sidebar">
-            <li onclick=hideSidebar()><a href='#'><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><button class="nav-icon-button sidebar-close" type="button" aria-label="Close navigation"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button></li>
             <li><a href="about.html">about</a></li>
             <li><a href="cv.html">cv</a></li>
             <li><a href="projects.html">projects</a></li>
             <li><a href="publications.html">publications</a></li>
-            <li><a href="contact.html">contact</a></li>
+            <li><a href="contact.html" class="active">contact</a></li>
+            <li><a href="search.html" class="search-nav-link" data-search-toggle aria-label="Search"><img src="images/search.svg" alt=""></a></li>
         </ul>
         <ul>
-            <li><a href="#">Luiz P.&nbsp;<span class="surname">Gressmann</span></a></li>
+            <li><a href="about.html">Luiz P.&nbsp;<span class="surname">Gressmann</span></a></li>
             <li class="hideOnMobile"><a href="about.html">about</a></li>
             <li class="hideOnMobile"><a href="cv.html">cv</a></li>
             <li class="hideOnMobile"><a href="projects.html">projects</a></li>
             <li class="hideOnMobile"><a href="publications.html">publications</a></li>
             <li class="hideOnMobile"><a href="contact.html" class="active">contact</a></li>
-            <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+            <li class="hideOnMobile"><a href="search.html" class="search-nav-link" data-search-toggle aria-label="Search"><img src="images/search.svg" alt=""></a></li>
+            <li class="menu-button"><button class="nav-icon-button sidebar-open" type="button" aria-label="Open navigation"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></button></li>
         </ul>
     </nav>
 
-    <section class="contact">
-  <h1>contact</h1>
-  <div class="contact-icons">
-    <a href="https://www.linkedin.com/in/luiz-gressmann/" target="_blank" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" class="icon">
-        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24h5V7H0v17zM8 7h4.8v2.3h.1c.7-1.3 2.4-2.7 5-2.7 5.3 0 6.3 3.5 6.3 8V24h-5v-8.5c0-2-.04-4.6-2.8-4.6s-3.2 2.2-3.2 4.5V24H8V7z"/>
-      </svg>
-    </a>
-    <a href="https://github.com/luizgressmann" target="_blank" aria-label="GitHub">
-      <svg viewBox="0 0 24 24" class="icon">
-        <path d="M12 .5C5.7.5.7 5.7.7 12c0 5 3.2 9.3 7.6 10.8.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.6 2.1 3.6 2.1.9 0 1.6-.1 2-.3.1-.8.4-1.4.7-1.7-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.5-2.6 5.5-5.1 5.8.4.4.8 1.2.8 2.4v3.5c0 .3.2.7.8.6 4.4-1.5 7.6-5.8 7.6-10.8C23.3 5.7 18.3.5 12 .5z"/>
-      </svg>
-    </a>
-    <a href="mailto:s8956760@stud.uni-frankfurt.de" aria-label="Email">
-      <svg viewBox="0 0 24 24" class="icon">
-        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-      </svg>
-    </a>
-  </div>
-  <p class="email-text">Email: s8956760@stud.uni-frankfurt.de</p>
-</section>
+    <main class="contact-page">
+        <section class="contact" aria-labelledby="contact-title">
+            <h1 id="contact-title">contact</h1>
+            <p class="contact-intro">
+                For academic questions, project-related conversations, or internship opportunities, feel free to reach out.
+            </p>
 
-<footer class="footer">
+            <div class="contact-list">
+                <a class="contact-row" href="mailto:s8956760@stud.uni-frankfurt.de">
+                    <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>
+                        <strong>Email</strong>
+                        <small>s8956760@stud.uni-frankfurt.de</small>
+                    </span>
+                </a>
 
-  <p>© <span id="year"></span> Luiz P. Gressmann. All rights reserved.</p>
+                <a class="contact-row" href="https://www.linkedin.com/in/luiz-gressmann/" target="_blank" rel="noreferrer">
+                    <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+                        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24h5V7H0v17zM8 7h4.8v2.3h.1c.7-1.3 2.4-2.7 5-2.7 5.3 0 6.3 3.5 6.3 8V24h-5v-8.5c0-2-.04-4.6-2.8-4.6s-3.2 2.2-3.2 4.5V24H8V7z"/>
+                    </svg>
+                    <span>
+                        <strong>LinkedIn</strong>
+                        <small>linkedin.com/in/luiz-gressmann</small>
+                    </span>
+                </a>
 
-</footer>
+                <a class="contact-row" href="https://github.com/luizgressmann" target="_blank" rel="noreferrer">
+                    <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+                        <path d="M12 .5C5.7.5.7 5.7.7 12c0 5 3.2 9.3 7.6 10.8.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.6 2.1 3.6 2.1.9 0 1.6-.1 2-.3.1-.8.4-1.4.7-1.7-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.5-2.6 5.5-5.1 5.8.4.4.8 1.2.8 2.4v3.5c0 .3.2.7.8.6 4.4-1.5 7.6-5.8 7.6-10.8C23.3 5.7 18.3.5 12 .5z"/>
+                    </svg>
+                    <span>
+                        <strong>GitHub</strong>
+                        <small>github.com/luizgressmann</small>
+                    </span>
+                </a>
+            </div>
+        </section>
+    </main>
 
-<script>
-    function showSidebar(){
-        const sidebar = document.querySelector('.sidebar')
-           sidebar.style.display = 'flex'
-    }
-
-    function hideSidebar(){
-        const sidebar = document.querySelector('.sidebar')
-        sidebar.style.display = 'none'
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-</script>
+    <footer class="footer">
+        <p>&copy; <span id="year"></span> Luiz P. Gressmann. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="legal-notice.html">Legal Notice</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+    <script src="assets/site.js"></script>
 </body>
 </html>
