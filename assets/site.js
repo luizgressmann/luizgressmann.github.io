@@ -59,7 +59,7 @@ filterBtns.forEach((btn) => {
 const searchIndex = [
   {
     title: "About",
-    url: "about.html",
+    url: "index.html",
     description: "Academic profile, research interests, and quantitative finance interests.",
     keywords: "about physics astrophysics neutron stars finance Goethe University Frankfurt"
   },
