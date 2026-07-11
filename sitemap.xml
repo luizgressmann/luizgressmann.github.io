@@ -4,7 +4,7 @@
     <loc>https://luizgressmann.github.io/</loc>
   </url>
   <url>
-    <loc>https://luizgressmann.github.io/about.html</loc>
+    <loc>https://luizgressmann.github.io/index.html</loc>
   </url>
   <url>
     <loc>https://luizgressmann.github.io/cv.html</loc>
@@ -12,12 +12,12 @@
   <url>
     <loc>https://luizgressmann.github.io/projects.html</loc>
   </url>
-  <url>
+ <!-- <url>
     <loc>https://luizgressmann.github.io/publications.html</loc>
   </url>
   <url>
     <loc>https://luizgressmann.github.io/search.html</loc>
-  </url>
+  </url> -->
   <url>
     <loc>https://luizgressmann.github.io/contact.html</loc>
   </url>

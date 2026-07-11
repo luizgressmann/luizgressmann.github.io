@@ -144,6 +144,10 @@ nav li:first-child{
   margin: 0 auto;
 }
 
+.hero-single {
+  grid-template-columns: minmax(0, 760px);
+}
+
 .hero-copy {
   max-width: 720px;
 }
@@ -163,6 +167,29 @@ nav li:first-child{
   color: #151515;
   font-size: 1rem;
   line-height: 1.6;
+}
+
+.about-secondary {
+  margin-top: 16px;
+}
+
+.about-links {
+  display: flex;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.about-links a {
+  color: #444;
+  text-decoration: underline;
+  text-decoration-color: #aaa;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.about-links a:hover {
+  color: #151515;
+  text-decoration-color: #151515;
 }
 
 .meta {
@@ -280,6 +307,19 @@ nav li:first-child{
   max-width: 960px;
   margin: 0 auto;
   padding: 42px 4% 0;
+}
+
+.cv-page a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: #bbb;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.cv-page a:hover {
+  color: #111;
+  text-decoration-color: #111;
 }
 
 .cv-header {
@@ -863,4 +903,15 @@ nav li:first-child{
   .cv-entry {
     grid-template-columns: minmax(0, 1fr) 150px;
   }
+}
+
+.site-status {
+  max-width: 680px;
+  margin-top: 30px;
+  padding: 11px 14px;
+  border-left: 2px solid #aaa;
+  background: #fafafa;
+  color: #666;
+  font-size: 0.86rem;
+  line-height: 1.5;
 }
