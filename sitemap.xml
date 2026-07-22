@@ -12,12 +12,15 @@
   <url>
     <loc>https://luizgressmann.github.io/projects.html</loc>
   </url>
- <!-- <url>
-    <loc>https://luizgressmann.github.io/publications.html</loc>
+  <url>
+    <loc>https://luizgressmann.github.io/projects/robust-dm-factor-allocation/</loc>
   </url>
   <url>
-    <loc>https://luizgressmann.github.io/search.html</loc>
-  </url> -->
+    <loc>https://luizgressmann.github.io/projects/neutron-star-tov/</loc>
+  </url>
+  <url>
+    <loc>https://luizgressmann.github.io/projects/volatility-forecasting-market-risk/</loc>
+  </url>
   <url>
     <loc>https://luizgressmann.github.io/contact.html</loc>
   </url>

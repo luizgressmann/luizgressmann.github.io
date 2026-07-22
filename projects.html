@@ -9,9 +9,11 @@
     <meta property="og:description" content="Selected projects in quantitative finance, physics, and computational methods.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://luizgressmann.github.io/projects.html">
+    <meta property="og:site_name" content="Luiz P. Gressmann">
     <meta name="twitter:card" content="summary">
-    <title>projects | Luiz P. Gressmann</title>
-    <link rel="icon" type="image/png" href="images/nebula.png">
+    <meta name="theme-color" content="#FFFFFF">
+    <title>Projects | Luiz P. Gressmann</title>
+    <link rel="icon" type="image/svg+xml" href="images/Logo.svg">
     <link rel="canonical" href="https://luizgressmann.github.io/projects.html">
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -21,90 +23,73 @@
             <li><button class="nav-icon-button sidebar-close" type="button" aria-label="Close navigation"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button></li>
             <li><a href="index.html">about</a></li>
             <li><a href="cv.html">cv</a></li>
-            <li><a href="projects.html" class="active">projects</a></li>
-        <!-- <li><a href="publications.html">publications</a></li>
-        -->
+            <li><a href="projects.html" class="active" aria-current="page">projects</a></li>
             <li><a href="contact.html">contact</a></li>
-            <!-- <li><a href="search.html" class="search-nav-link" data-search-toggle aria-label="Search"><img src="images/search.svg" alt=""></a></li>
-        -->
         </ul>
         <ul>
-            <li><a href="index.html">Luiz P.&nbsp;<span class="surname">Gressmann</span></a></li>
+            <li class="site-brand"><a href="index.html">Luiz P.&nbsp;<span class="surname">Gressmann</span></a></li>
             <li class="hideOnMobile"><a href="index.html">about</a></li>
             <li class="hideOnMobile"><a href="cv.html">cv</a></li>
-            <li class="hideOnMobile"><a href="projects.html" class="active">projects</a></li>
-            <!--<li class="hideOnMobile"><a href="publications.html">publications</a></li>
-            -->
+            <li class="hideOnMobile"><a href="projects.html" class="active" aria-current="page">projects</a></li>
             <li class="hideOnMobile"><a href="contact.html">contact</a></li>
-            <!-- <li class="hideOnMobile"><a href="search.html" class="search-nav-link" data-search-toggle aria-label="Search"><img src="images/search.svg" alt=""></a></li>
-            -->
-            <li class="menu-button"><button class="nav-icon-button sidebar-open" type="button" aria-label="Open navigation"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></button></li>
+            <li class="menu-button"><button class="nav-icon-button sidebar-open" type="button" aria-label="Open navigation" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></button></li>
         </ul>
     </nav>
 
-    <section class="projects-section">
+    <main class="projects-section">
         <h1>projects</h1>
 
-        <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">all</button>
-            <button class="filter-btn" data-filter="finance">finance</button>
-            <button class="filter-btn" data-filter="physics">physics</button>
+        <div class="filter-bar" aria-label="Filter projects">
+            <button class="filter-btn active" data-filter="all" aria-pressed="true">all</button>
+            <button class="filter-btn" data-filter="finance" aria-pressed="false">finance</button>
+            <button class="filter-btn" data-filter="physics" aria-pressed="false">physics</button>
         </div>
 
         <div class="projects-grid">
 
-            <div class="project-card" data-category="finance">
+            <article class="project-card" data-category="finance">
+                <a class="card-main-link" href="projects/robust-dm-factor-allocation/index.html" aria-label="Open Robust DM Factor Allocation project page"></a>
                 <div class="card-header">
-                    <span class="category-tag finance">finance</span>
-                    <a href="https://github.com/luizgressmann/robust-dm-factor-allocation" class="card-link" target="_blank" rel="noreferrer" aria-label="View on GitHub">
+                    <div class="card-meta">
+                        <span class="category-tag finance">finance</span>
+                        <span class="card-status">in progress</span>
+                    </div>
+                    <a href="https://github.com/luizgressmann/robust-dm-factor-allocation" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Robust DM Factor Allocation on GitHub">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.7.5.7 5.7.7 12c0 5 3.2 9.3 7.6 10.8.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.6 5.4-5.1 5.7.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6 4.4-1.5 7.6-5.8 7.6-10.8C23.3 5.7 18.3.5 12 .5z"/></svg>
                     </a>
                 </div>
                 <h2 class="card-title">Robust DM Factor Allocation</h2>
-                <p class="card-desc">Rolling out-of-sample optimization of evidence-based equity factors in developed markets.
-                </p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Factor Investing</span>
-                    <span class="tech-tag">Quantitative Finance</span>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card" data-category="physics">
+            <article class="project-card" data-category="physics">
+                <a class="card-main-link" href="projects/neutron-star-tov/index.html" aria-label="Open Neutron Star Structure from the TOV Equations project page"></a>
                 <div class="card-header">
-                    <span class="category-tag physics">physics</span>
-                    <a href="https://github.com/luizgressmann/neutron-star-tov" class="card-link" target="_blank" rel="noreferrer" aria-label="View on GitHub">
+                    <div class="card-meta">
+                        <span class="category-tag physics">physics</span>
+                        <span class="card-status">in progress</span>
+                    </div>
+                    <a href="https://github.com/luizgressmann/neutron-star-tov" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Neutron Star Structure from the TOV Equations on GitHub">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.7.5.7 5.7.7 12c0 5 3.2 9.3 7.6 10.8.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.6 5.4-5.1 5.7.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6 4.4-1.5 7.6-5.8 7.6-10.8C23.3 5.7 18.3.5 12 .5z"/></svg>
                     </a>
                 </div>
                 <h2 class="card-title">Neutron Star Structure from the TOV Equations</h2>
-                <p class="card-desc">Numerically solving the Tolman-Oppenheimer-Volkoff equations with polytropic equations of state to investigate neutron-star density profiles and mass-radius relations.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">SciPy</span>
-                    <span class="tech-tag">Numerical Methods</span>
-                    <span class="tech-tag">Differential Equations</span>
-                    <span class="tech-tag">Numerical Integration</span>
-                    <span class="tech-tag">Astrophysics</span>
-                </div>
-            </div>
+            </article>
 
-            <div class="project-card" data-category="finance">
+            <article class="project-card" data-category="finance">
+                <a class="card-main-link" href="projects/volatility-forecasting-market-risk/index.html" aria-label="Open Volatility Forecasting and Market Risk project page"></a>
                 <div class="card-header">
-                    <span class="category-tag finance">finance</span>
-                    <a href="" class="card-link" target="_blank" rel="noreferrer" aria-label="View on GitHub">
+                    <div class="card-meta">
+                        <span class="category-tag finance">finance</span>
+                        <span class="card-status">in progress</span>
+                    </div>
+                    <a href="https://github.com/luizgressmann/volatility-forecasting-market-risk" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View Volatility Forecasting and Market Risk on GitHub">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.7.5.7 5.7.7 12c0 5 3.2 9.3 7.6 10.8.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.6 5.4-5.1 5.7.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6 4.4-1.5 7.6-5.8 7.6-10.8C23.3 5.7 18.3.5 12 .5z"/></svg>
                     </a>
                 </div>
                 <h2 class="card-title">Volatility Forecasting and Market Risk</h2>
-                <p class="card-desc">Can machine-learning models improve short-horizon volatility forecasts relative to simple statistical benchmarks?
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Quantitative Finance</span>
-                </div>
-            </div>
+            </article>
         </div>
-    </section>
+    </main>
 
     <footer class="footer">
         <p>&copy; <span id="year"></span> Luiz P. Gressmann. All rights reserved.</p>
