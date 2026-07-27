@@ -449,6 +449,141 @@ nav a.active{
   gap: 24px;
 }
 
+.certificate-accordion {
+  display: grid;
+  gap: 12px;
+}
+
+.certificate-group {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--page);
+  box-shadow: 0 1px 4px var(--shadow-soft);
+}
+
+.certificate-group summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 62px;
+  padding: 14px 18px;
+  color: var(--dark);
+  cursor: pointer;
+  list-style: none;
+}
+
+.certificate-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.certificate-group summary::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.certificate-group[open] summary {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.certificate-group[open] summary::after {
+  transform: rotate(225deg);
+}
+
+.certificate-summary-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.certificate-summary-copy strong {
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.certificate-summary-copy small {
+  color: var(--faint);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.certificate-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  min-height: 28px;
+  margin-left: auto;
+  border: 1px solid var(--light-soft);
+  border-radius: 999px;
+  background: var(--soft-fill);
+  color: var(--dark);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.certificate-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px;
+  gap: 24px;
+  padding: 18px;
+}
+
+.certificate-item h3 {
+  margin-bottom: 5px;
+  color: var(--dark);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.certificate-item p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.certificate-description {
+  margin-top: 8px;
+}
+
+.certificate-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.certificate-tags span {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 3px 10px;
+  background: var(--soft-fill);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.certificate-link {
+  display: inline-flex;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+.certificate-placeholder {
+  padding: 16px 18px 18px;
+}
+
+.certificate-placeholder p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 .simple-page {
   max-width: 720px;
   margin: 0 auto;
@@ -789,6 +924,7 @@ nav a.active{
   .cv-header,
   .cv-section,
   .cv-entry,
+  .certificate-item,
   .cv-skill-grid {
     grid-template-columns: 1fr;
   }
@@ -804,6 +940,10 @@ nav a.active{
   .cv-meta,
   .cv-updated {
     text-align: left;
+  }
+
+  .certificate-item {
+    gap: 14px;
   }
 
 }
