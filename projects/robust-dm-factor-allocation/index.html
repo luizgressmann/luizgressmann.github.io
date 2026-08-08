@@ -56,22 +56,22 @@
 
         <div class="project-detail-content">
             <section class="project-narrative-section" aria-labelledby="research-question-title">
-                <p class="project-section-label">01 / Research question</p>
+                <p class="project-section-label">Research question</p>
                 <h2 id="research-question-title">Can factor allocations remain useful when estimates are unstable?</h2>
-                <p>The project compares optimized combinations of five long-only developed-market factor indices with simple allocation rules. The objective is not to select the portfolio with the highest historical return, but to examine how sensitive an allocation is to its estimation window, rebalancing schedule, weight limits and trading-cost assumption.</p>
-                <p>Value, Momentum, Quality, Minimum Volatility and Equal Weight form the allocation universe. Equal Weight is treated as an approximate size tilt rather than a pure size factor. MSCI World remains outside the portfolio and serves as the broad market benchmark.</p>
+                <p>The project compares optimized combinations of five long-only DM factor indices with simple allocation rules. The objective is not to select the portfolio with the highest historical return, but to examine how sensitive allocations are to their estimation window, rebalancing schedule, weight limits and trading-cost assumption.</p>
+                <p>The used factors are Value, Momentum, Quality, Minimum Volatility and Size. For the Size factor, an Equal Weight Index was used as proxy. The MSCI World Index serves as the broad market benchmark.</p>
             </section>
 
             <section class="project-narrative-section" aria-labelledby="research-design-title">
-                <p class="project-section-label">02 / Research design</p>
+                <p class="project-section-label">Research design</p>
                 <h2 id="research-design-title">A historical walk-forward evaluation</h2>
-                <p>Portfolio weights are estimated from observations available up to month t and are applied to the return in month t + 1. This prevents the allocation from using the return on which it is evaluated. The exercise is nevertheless historical and pseudo-out-of-sample because the full dataset was available while the research design was developed.</p>
+                <p>Portfolio weights are estimated from observations available up to month t and are applied to the return in month t + 1. This prevents the allocation from using the return on which it is evaluated. Besides that the excercise is historical and pseudo-out-of-sample because the full dataset was available while the research design was developed.</p>
                 <p>The main specification uses a ten-year trailing window, quarterly rebalancing, long-only fully invested portfolios, a 40% maximum weight and 10 basis points of portfolio trading costs.</p>
 
                 <dl class="project-spec-list" aria-label="Default research specification">
                     <div>
                         <dt>Universe</dt>
-                        <dd>Value, Momentum, Quality, Minimum Volatility and Equal Weight</dd>
+                        <dd>Value, Momentum, Quality, Minimum Volatility and Size</dd>
                     </div>
                     <div>
                         <dt>Benchmark</dt>
@@ -83,7 +83,7 @@
                     </div>
                     <div>
                         <dt>Constraints</dt>
-                        <dd>Long-only, fully invested and capped at 40% per sleeve</dd>
+                        <dd>Long-only, fully invested and capped at 40% per factor</dd>
                     </div>
                     <div>
                         <dt>Rebalancing</dt>
@@ -93,38 +93,38 @@
             </section>
 
             <section class="project-narrative-section" aria-labelledby="allocation-methods-title">
-                <p class="project-section-label">03 / Allocation methods</p>
+                <p class="project-section-label">Allocation methods</p>
                 <h2 id="allocation-methods-title">Simple rules alongside covariance-based portfolios</h2>
                 <p>The comparison deliberately includes transparent baselines. This makes it possible to judge whether the additional estimation and optimization steps provide a stable improvement or merely fit a particular historical sample.</p>
 
                 <dl class="project-method-list">
                     <div>
                         <dt>Equal Weight</dt>
-                        <dd>A 1/N allocation that requires no estimated risk inputs.</dd>
+                        <dd>A 1/N allocation that requires no estimated risk inputs</dd>
                     </div>
                     <div>
                         <dt>Inverse Volatility</dt>
-                        <dd>Allocates less to sleeves with higher standalone volatility.</dd>
+                        <dd>Allocates less to factors with higher standalone volatility</dd>
                     </div>
                     <div>
                         <dt>Sample GMV</dt>
-                        <dd>Minimizes portfolio variance using the sample covariance matrix.</dd>
+                        <dd>Minimizes portfolio variance using the sample covariance matrix</dd>
                     </div>
                     <div>
                         <dt>Shrinkage GMV</dt>
-                        <dd>Regularizes the covariance estimate to reduce sensitivity to estimation noise.</dd>
+                        <dd>Regularizes the covariance estimate to reduce sensitivity to estimation noise</dd>
                     </div>
                     <div>
                         <dt>Equal Risk Contribution</dt>
-                        <dd>Balances the estimated risk contribution of the factor sleeves.</dd>
+                        <dd>Balances the estimated risk contribution of the factors</dd>
                     </div>
                 </dl>
             </section>
 
             <section class="project-narrative-section" aria-labelledby="implementation-title">
-                <p class="project-section-label">04 / Implementation</p>
-                <h2 id="implementation-title">A reproducible Python research workflow</h2>
-                <p>The implementation separates reusable portfolio logic from the research notebooks. Data validation, covariance estimation, optimization, walk-forward accounting and performance metrics live in small Python modules, while the notebooks document the sequence from data preparation to robustness analysis.</p>
+                <p class="project-section-label">Implementation</p>
+                <h2 id="implementation-title">A reproducible Python workflow</h2>
+                <p>The implementation separates reusable portfolio logic from the notebooks. Data validation, covariance estimation, optimization, walk-forward accounting and performance metrics live in small Python modules, while the notebooks document the sequence from data preparation to robustness analysis.</p>
                 <ul class="project-list">
                     <li>Checks for duplicate dates, missing months and invalid return values</li>
                     <li>Explicit one-month lag to prevent direct look-ahead</li>
@@ -135,13 +135,13 @@
             </section>
 
             <section class="project-narrative-section" aria-labelledby="interpretation-title">
-                <p class="project-section-label">05 / Interpretation</p>
+                <p class="project-section-label">Interpretation</p>
                 <h2 id="interpretation-title">What the analysis can and cannot establish</h2>
                 <p>Several factor-index histories include provider-backtested observations from before their official launch. The walk-forward structure controls the timing of the portfolio decision, but it does not turn those histories into a fully live investment record. Post-launch checks may still use pre-launch observations in their rolling estimation windows. Index returns are also theoretical and do not represent the net experience of an investable fund.</p>
                 <p>The study is limited to one provider, one base currency and one developed-market aggregate. Its conclusions should therefore be read as evidence about the behaviour of this research design, not as a universal ranking of factor-allocation methods.</p>
             </section>
 
-            <p class="site-status project-output-status">Empirical performance results are not displayed on this website. They are generated locally from MSCI index data subject to redistribution restrictions and include return series, portfolio weights, tables and figures. The public release therefore focuses on the methodology, implementation and limitations. This is an independent research project, not investment advice, and is not sponsored, endorsed or reviewed by MSCI.</p>
+            <p class="site-status project-output-status">Empirical performance results are not displayed on this website. They are generated locally from MSCI index data subject to licensing restrictions and include return series, portfolio weights, tables and figures. The public release therefore focuses on the methodology, implementation and limitations. This is an independent research project, not investment advice, and is not sponsored, endorsed or reviewed by MSCI.</p>
 
             <div class="project-cta">
                 <a class="button" href="https://github.com/luizgressmann/robust-dm-factor-allocation/tree/public-release" target="_blank" rel="noopener noreferrer">View public branch</a>
