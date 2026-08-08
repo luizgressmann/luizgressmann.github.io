@@ -42,6 +42,36 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+const filterStatus = document.querySelector(".filter-status");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+    let visibleCount = 0;
+
+    filterButtons.forEach((current) => {
+      current.setAttribute("aria-pressed", String(current === button));
+    });
+
+    projectCards.forEach((card) => {
+      const visible = filter === "all" || card.dataset.category === filter;
+      card.hidden = !visible;
+
+      if (visible) {
+        visibleCount += 1;
+      }
+    });
+
+    if (filterStatus) {
+      filterStatus.textContent = visibleCount === 0
+        ? `No ${filter === "all" ? "" : `${filter} `}projects published yet.`
+        : "";
+    }
+  });
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     hideSidebar();

@@ -10,7 +10,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://luizgressmann.com/projects.html">
     <meta property="og:site_name" content="Luiz P. Gressmann">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://luizgressmann.com/images/social-preview.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Luiz P. Gressmann — Physics, Quantitative Finance and Computational Methods">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://luizgressmann.com/images/social-preview.png">
+    <meta name="twitter:image:alt" content="Luiz P. Gressmann — Physics, Quantitative Finance and Computational Methods">
     <meta name="theme-color" content="#FFFFFF">
     <title>projects | Luiz P. Gressmann</title>
     <link rel="icon" type="image/svg+xml" href="images/Logo.svg">
@@ -40,7 +47,15 @@
         <h1>projects</h1>
         <p class="projects-intro">Selected research and programming projects in quantitative finance and computational physics.</p>
 
-        <div class="projects-grid">
+        <div class="filter-bar" role="group" aria-label="Filter projects">
+            <button type="button" class="filter-btn" data-filter="all" aria-pressed="true" aria-controls="projects-grid">all</button>
+            <button type="button" class="filter-btn" data-filter="finance" aria-pressed="false" aria-controls="projects-grid">finance</button>
+            <button type="button" class="filter-btn" data-filter="physics" aria-pressed="false" aria-controls="projects-grid">physics</button>
+        </div>
+
+        <p class="filter-status" role="status" aria-live="polite"></p>
+
+        <div class="projects-grid" id="projects-grid">
 
             <article class="project-card" data-category="finance">
                 <a class="card-main-link" href="projects/robust-dm-factor-allocation/" aria-label="Open Robust DM Factor Allocation project page"></a>
@@ -60,7 +75,6 @@
                     <li>Factor Investing</li>
                     <li>Python</li>
                 </ul>
-                <span class="card-cta">View project <span aria-hidden="true">&rarr;</span></span>
             </article>
 
         </div>

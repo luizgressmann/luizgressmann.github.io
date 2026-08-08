@@ -680,14 +680,54 @@ nav a.active{
 .projects-section h1 {
   font-size: 2rem;
   font-weight: 400;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .projects-intro {
   max-width: 680px;
-  margin-bottom: 28px;
+  margin-bottom: 34px;
   color: var(--text);
   line-height: 1.6;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  min-height: 36px;
+  padding: 5px 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--page);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--bright);
+  color: var(--dark);
+}
+
+.filter-btn[aria-pressed="true"] {
+  border-color: var(--bright);
+  background: var(--soft-fill-strong);
+  color: var(--dark);
+}
+
+.filter-status {
+  margin-bottom: 24px;
+  color: var(--muted);
+}
+
+.filter-status:empty {
+  display: none;
 }
 
 .projects-grid {
@@ -708,6 +748,10 @@ nav a.active{
   box-shadow: 0 1px 4px var(--shadow-soft);
   cursor: pointer;
   transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card[hidden] {
+  display: none;
 }
 
 .project-card:hover {
@@ -773,17 +817,6 @@ nav a.active{
   background: var(--soft-fill);
   color: var(--dark);
   font-size: 0.7rem;
-}
-
-.card-cta {
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
-  padding-top: 18px;
-  color: var(--dark);
-  font-size: 0.8rem;
-  font-weight: 600;
-  pointer-events: none;
 }
 
 .category-tag {
@@ -1020,6 +1053,11 @@ nav a.active{
 @media (max-width: 600px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .filter-btn {
+    min-height: 40px;
+    padding-inline: 15px;
   }
 }
 
