@@ -42,39 +42,6 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-const filterBtns = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project-card");
-
-filterBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    filterBtns.forEach((button) => {
-      button.classList.remove("active");
-      button.setAttribute("aria-pressed", "false");
-    });
-
-    btn.classList.add("active");
-    btn.setAttribute("aria-pressed", "true");
-
-    const filter = btn.dataset.filter;
-    projectCards.forEach((card) => {
-      const match = filter === "all" || card.dataset.category === filter;
-      card.style.opacity = "0";
-      card.style.transform = "translateY(6px)";
-
-      if (!match) {
-        card.style.display = "none";
-      } else {
-        card.style.display = "flex";
-        requestAnimationFrame(() => {
-          card.style.transition = "opacity 0.25s ease, transform 0.25s ease";
-          card.style.opacity = "1";
-          card.style.transform = "translateY(0)";
-        });
-      }
-    });
-  });
-});
-
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     hideSidebar();

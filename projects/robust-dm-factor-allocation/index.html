@@ -49,138 +49,99 @@
             </div>
         </header>
 
-        <section class="project-section project-intro-grid" aria-labelledby="project-overview-title">
-            <div class="project-copy">
-                <p class="section-kicker">Overview</p>
-                <h2 id="project-overview-title">A portfolio problem under estimation uncertainty</h2>
-                <p>The project asks whether long-only factor indices can be combined more robustly than simple allocation rules. Value, Momentum, Quality, Minimum Volatility and Equal Weight form the allocation universe, while MSCI World remains outside the portfolio as the market benchmark.</p>
-                <p>The evaluation is historical and pseudo-out-of-sample. Every portfolio uses only information available before the return month, but the full dataset was available while the research design was developed.</p>
-            </div>
+        <div class="project-detail-content">
+            <section class="project-narrative-section" aria-labelledby="research-question-title">
+                <p class="project-section-label">01 / Research question</p>
+                <h2 id="research-question-title">Can factor allocations remain useful when estimates are unstable?</h2>
+                <p>The project compares optimized combinations of five long-only developed-market factor indices with simple allocation rules. The objective is not to select the portfolio with the highest historical return, but to examine how sensitive an allocation is to its estimation window, rebalancing schedule, weight limits and trading-cost assumption.</p>
+                <p>Value, Momentum, Quality, Minimum Volatility and Equal Weight form the allocation universe. Equal Weight is treated as an approximate size tilt rather than a pure size factor. MSCI World remains outside the portfolio and serves as the broad market benchmark.</p>
+            </section>
 
-            <dl class="project-facts" aria-label="Default research design">
-                <div class="project-fact">
-                    <dt>5</dt>
-                    <dd>factor sleeves</dd>
-                </div>
-                <div class="project-fact">
-                    <dt>120</dt>
-                    <dd>month window</dd>
-                </div>
-                <div class="project-fact">
-                    <dt>Quarterly</dt>
-                    <dd>rebalancing</dd>
-                </div>
-                <div class="project-fact">
-                    <dt>11</dt>
-                    <dd>unit tests</dd>
-                </div>
-            </dl>
-        </section>
+            <section class="project-narrative-section" aria-labelledby="research-design-title">
+                <p class="project-section-label">02 / Research design</p>
+                <h2 id="research-design-title">A historical walk-forward evaluation</h2>
+                <p>Portfolio weights are estimated from observations available up to month t and are applied to the return in month t + 1. This prevents the allocation from using the return on which it is evaluated. The exercise is nevertheless historical and pseudo-out-of-sample because the full dataset was available while the research design was developed.</p>
+                <p>The main specification uses a ten-year trailing window, quarterly rebalancing, long-only fully invested portfolios, a 40% maximum weight and 10 basis points of portfolio trading costs.</p>
 
-        <section class="project-section" aria-labelledby="workflow-title">
-            <p class="section-kicker">Research workflow</p>
-            <h2 id="workflow-title">From local inputs to robustness checks</h2>
-            <div class="project-flow" aria-label="Six stages of the research workflow">
-                <div class="flow-step">
-                    <span>01</span>
-                    <strong>Local inputs</strong>
-                    <small>Licensed index files stay local</small>
-                </div>
-                <div class="flow-step">
-                    <span>02</span>
-                    <strong>Validation</strong>
-                    <small>Dates, gaps and return ranges</small>
-                </div>
-                <div class="flow-step">
-                    <span>03</span>
-                    <strong>Estimation</strong>
-                    <small>Past observations only</small>
-                </div>
-                <div class="flow-step">
-                    <span>04</span>
-                    <strong>Allocation</strong>
-                    <small>Long-only with weight caps</small>
-                </div>
-                <div class="flow-step">
-                    <span>05</span>
-                    <strong>Walk-forward</strong>
-                    <small>Weights applied one month ahead</small>
-                </div>
-                <div class="flow-step">
-                    <span>06</span>
-                    <strong>Robustness</strong>
-                    <small>Windows, costs and constraints</small>
-                </div>
-            </div>
-        </section>
+                <dl class="project-spec-list" aria-label="Default research specification">
+                    <div>
+                        <dt>Universe</dt>
+                        <dd>Value, Momentum, Quality, Minimum Volatility and Equal Weight</dd>
+                    </div>
+                    <div>
+                        <dt>Benchmark</dt>
+                        <dd>MSCI World, excluded from the allocation universe</dd>
+                    </div>
+                    <div>
+                        <dt>Estimation</dt>
+                        <dd>120 trailing months with a one-month application lag</dd>
+                    </div>
+                    <div>
+                        <dt>Constraints</dt>
+                        <dd>Long-only, fully invested and capped at 40% per sleeve</dd>
+                    </div>
+                    <div>
+                        <dt>Rebalancing</dt>
+                        <dd>Quarterly, with costs charged on portfolio turnover</dd>
+                    </div>
+                </dl>
+            </section>
 
-        <section class="project-section" aria-labelledby="methods-title">
-            <p class="section-kicker">Methods</p>
-            <h2 id="methods-title">Simple baselines and covariance-based portfolios</h2>
-            <p class="section-intro">The default specification uses a 120-month estimation window, quarterly rebalancing, a 40% weight cap and 10 basis points of portfolio trading costs.</p>
-            <div class="method-grid">
-                <article class="method-card">
-                    <h3>Equal Weight</h3>
-                    <p>A transparent 1/N baseline with no estimated risk inputs.</p>
-                </article>
-                <article class="method-card">
-                    <h3>Inverse Volatility</h3>
-                    <p>Scales each sleeve by its estimated standalone risk.</p>
-                </article>
-                <article class="method-card">
-                    <h3>Sample GMV</h3>
-                    <p>Minimizes portfolio variance using the sample covariance matrix.</p>
-                </article>
-                <article class="method-card">
-                    <h3>Shrinkage GMV</h3>
-                    <p>Regularizes covariance estimates to reduce unstable allocations.</p>
-                </article>
-                <article class="method-card">
-                    <h3>Equal Risk Contribution</h3>
-                    <p>Balances ex-ante risk contributions across the factor sleeves.</p>
-                </article>
-            </div>
-        </section>
+            <section class="project-narrative-section" aria-labelledby="allocation-methods-title">
+                <p class="project-section-label">03 / Allocation methods</p>
+                <h2 id="allocation-methods-title">Simple rules alongside covariance-based portfolios</h2>
+                <p>The comparison deliberately includes transparent baselines. This makes it possible to judge whether the additional estimation and optimization steps provide a stable improvement or merely fit a particular historical sample.</p>
 
-        <section class="project-section project-data-note" aria-labelledby="public-results-title">
-            <p class="section-kicker">Public release</p>
-            <h2 id="public-results-title">Why there is no performance chart here</h2>
-            <p>The public release is limited to implementation, tests, configuration and research documentation. MSCI source files, processed return series, portfolio returns, weights, tables and figures are deliberately not redistributed.</p>
-            <p>The repository is currently being published in stages. Once complete, users with appropriate data access can reproduce the empirical outputs locally by following the documented file names and notebook order.</p>
-            <p>This is an independent research project, not investment advice, and is not sponsored, endorsed or reviewed by MSCI.</p>
-        </section>
+                <dl class="project-method-list">
+                    <div>
+                        <dt>Equal Weight</dt>
+                        <dd>A 1/N allocation that requires no estimated risk inputs.</dd>
+                    </div>
+                    <div>
+                        <dt>Inverse Volatility</dt>
+                        <dd>Allocates less to sleeves with higher standalone volatility.</dd>
+                    </div>
+                    <div>
+                        <dt>Sample GMV</dt>
+                        <dd>Minimizes portfolio variance using the sample covariance matrix.</dd>
+                    </div>
+                    <div>
+                        <dt>Shrinkage GMV</dt>
+                        <dd>Regularizes the covariance estimate to reduce sensitivity to estimation noise.</dd>
+                    </div>
+                    <div>
+                        <dt>Equal Risk Contribution</dt>
+                        <dd>Balances the estimated risk contribution of the factor sleeves.</dd>
+                    </div>
+                </dl>
+            </section>
 
-        <section class="project-section project-columns" aria-labelledby="project-scope-title">
-            <div>
-                <p class="section-kicker">What the code demonstrates</p>
-                <h2 id="project-scope-title">Research and implementation</h2>
+            <section class="project-narrative-section" aria-labelledby="implementation-title">
+                <p class="project-section-label">04 / Implementation</p>
+                <h2 id="implementation-title">A reproducible Python research workflow</h2>
+                <p>The implementation separates reusable portfolio logic from the research notebooks. Data validation, covariance estimation, optimization, walk-forward accounting and performance metrics live in small Python modules, while the notebooks document the sequence from data preparation to robustness analysis.</p>
                 <ul class="project-list">
-                    <li>Strict lagging to prevent direct look-ahead</li>
-                    <li>Constrained portfolio optimization</li>
-                    <li>Turnover based on drifted pre-trade weights</li>
-                    <li>Transaction-cost and parameter sensitivity</li>
-                    <li>Automated tests for metrics and constraints</li>
+                    <li>Checks for duplicate dates, missing months and invalid return values</li>
+                    <li>Explicit one-month lag to prevent direct look-ahead</li>
+                    <li>Turnover measured against drifted pre-trade weights, with costs applied at rebalancing dates after inception</li>
+                    <li>Synthetic unit tests covering constraints, metrics and timing</li>
+                    <li>Robustness checks across windows, rebalancing frequencies, caps and costs</li>
                 </ul>
-            </div>
-            <div>
-                <p class="section-kicker">Limitations</p>
-                <h2>How to read the study</h2>
-                <ul class="project-list">
-                    <li>Several histories include provider-backtested periods</li>
-                    <li>Index returns are not investable product returns</li>
-                    <li>Equal Weight is only an approximate size tilt</li>
-                    <li>The scope is one provider, currency and market aggregate</li>
-                </ul>
-            </div>
-        </section>
+            </section>
 
-        <section class="project-cta" aria-label="Project repository">
-            <div>
-                <p class="section-kicker">Code-only release</p>
-                <h2>Review the implementation on GitHub</h2>
+            <section class="project-narrative-section" aria-labelledby="interpretation-title">
+                <p class="project-section-label">05 / Interpretation</p>
+                <h2 id="interpretation-title">What the analysis can and cannot establish</h2>
+                <p>Several factor-index histories include provider-backtested observations from before their official launch. The walk-forward structure controls the timing of the portfolio decision, but it does not turn those histories into a fully live investment record. Post-launch checks may still use pre-launch observations in their rolling estimation windows. Index returns are also theoretical and do not represent the net experience of an investable fund.</p>
+                <p>The study is limited to one provider, one base currency and one developed-market aggregate. Its conclusions should therefore be read as evidence about the behaviour of this research design, not as a universal ranking of factor-allocation methods.</p>
+            </section>
+
+            <p class="site-status project-output-status">Empirical performance results are not displayed on this website. They are generated locally from MSCI index data subject to redistribution restrictions and include return series, portfolio weights, tables and figures. The public release therefore focuses on the methodology, implementation and limitations. This is an independent research project, not investment advice, and is not sponsored, endorsed or reviewed by MSCI.</p>
+
+            <div class="project-cta">
+                <a class="button" href="https://github.com/luizgressmann/robust-dm-factor-allocation/tree/public-release" target="_blank" rel="noopener noreferrer">View public branch</a>
             </div>
-            <a class="button" href="https://github.com/luizgressmann/robust-dm-factor-allocation/tree/public-release" target="_blank" rel="noopener noreferrer">View public branch</a>
-        </section>
+        </div>
     </main>
 
     <footer class="footer">
