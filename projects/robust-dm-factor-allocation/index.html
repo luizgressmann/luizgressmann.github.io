@@ -54,7 +54,7 @@
         <header class="project-detail-hero">
             <span class="category-tag finance">finance</span>
             <h1>Robust Developed-Market Factor Allocation</h1>
-            <p class="project-lead">A completed Python research package comparing five long-only allocation rules across four developed-market equity factor sleeves in a lagged, cost-aware walk-forward backtest.</p>
+            <p class="project-lead">Python project comparing allocation rules across four DM factors, including lagged walk-forward tests, costs, robustness checks and a synthetic demo.</p>
             <div class="project-actions">
                 <a class="button" href="https://github.com/luizgressmann/robust-dm-factor-allocation" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
                 <a class="button" href="#synthetic-demo">View synthetic demo</a>
@@ -164,14 +164,14 @@ python -m robust_dm_factor_allocation.demo --output-dir results/demo</code></pre
                 <div class="project-figure-list">
                     <figure class="project-figure">
                         <a class="project-figure-link" href="../../images/projects/robust-dm-factor-allocation/demo-wealth.png" target="_blank" rel="noopener noreferrer" aria-label="Open the synthetic walk-forward wealth chart at full size">
-                            <img src="../../images/projects/robust-dm-factor-allocation/demo-wealth.png" width="1790" height="1047" loading="lazy" decoding="async" alt="Line chart of synthetic walk-forward wealth for equal weight, inverse volatility, sample GMV, OAS GMV, equal risk contribution and a synthetic market over a ten-year evaluation period.">
+                            <img src="../../images/projects/robust-dm-factor-allocation/demo-wealth.png" width="900" height="500" loading="lazy" decoding="async" alt="Line chart of synthetic walk-forward wealth for equal weight, inverse volatility, sample GMV, OAS GMV, equal risk contribution and a synthetic market over a ten-year evaluation period.">
                         </a>
                         <figcaption><strong>Synthetic walk-forward wealth.</strong> Five allocation rules and the synthetic market, using a 60-month lookback, quarterly rebalancing, a 40% cap and 10 basis points of cost. In this generated sample, the synthetic market finishes above all five allocations; the GMV variants slightly reduce volatility but also finish lowest.</figcaption>
                     </figure>
 
                     <figure class="project-figure">
                         <a class="project-figure-link" href="../../images/projects/robust-dm-factor-allocation/demo-cap-sensitivity.png" target="_blank" rel="noopener noreferrer" aria-label="Open the synthetic OAS-GMV cap-sensitivity chart at full size">
-                            <img src="../../images/projects/robust-dm-factor-allocation/demo-cap-sensitivity.png" width="1541" height="975" loading="lazy" decoding="async" alt="Scatter plot of synthetic OAS-GMV information ratios grouped by 30, 40 and 50 percent maximum target weights, with horizontal median markers.">
+                            <img src="../../images/projects/robust-dm-factor-allocation/demo-cap-sensitivity.png" width="900" height="500" loading="lazy" decoding="async" alt="Scatter plot of synthetic OAS-GMV information ratios grouped by 30, 40 and 50 percent maximum target weights, with horizontal median markers.">
                         </a>
                         <figcaption><strong>Synthetic cap sensitivity.</strong> Each point is one OAS-GMV lookback and rebalancing specification; the horizontal bar marks the median for that cap. All 12 information ratios are negative in this generated sample, and the 50% cap group has the lowest median.</figcaption>
                     </figure>
