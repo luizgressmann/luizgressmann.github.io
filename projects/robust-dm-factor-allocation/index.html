@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Python research project on historical walk-forward allocation of developed-market equity factor indices under estimation uncertainty.">
-    <meta property="og:title" content="Robust DM Factor Allocation | Luiz P. Gressmann">
-    <meta property="og:description" content="Historical walk-forward allocation of developed-market equity factor indices under estimation uncertainty.">
+    <meta name="description" content="A completed Python project comparing five portfolio-allocation rules across four developed-market equity factor sleeves in a cost-aware walk-forward backtest.">
+    <meta property="og:title" content="Robust Developed-Market Factor Allocation | Luiz P. Gressmann">
+    <meta property="og:description" content="Five allocation rules, four developed-market factor sleeves, lagged walk-forward testing, robustness checks and a reproducible synthetic demo.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://luizgressmann.com/projects/robust-dm-factor-allocation/">
     <meta property="og:site_name" content="Luiz P. Gressmann">
@@ -19,7 +19,7 @@
     <meta name="twitter:image" content="https://luizgressmann.com/images/social-preview.png?v=2">
     <meta name="twitter:image:alt" content="Luiz P. Gressmann — Theoretical Physics and Quantitative Finance">
     <meta name="theme-color" content="#FFFFFF">
-    <title>Robust DM Factor Allocation | Luiz P. Gressmann</title>
+    <title>Robust Developed-Market Factor Allocation | Luiz P. Gressmann</title>
     <script>
         if (window.location.pathname.endsWith("/projects/robust-dm-factor-allocation/index.html")) {
             window.location.replace("/projects/robust-dm-factor-allocation/" + window.location.search + window.location.hash);
@@ -53,32 +53,33 @@
 
         <header class="project-detail-hero">
             <span class="category-tag finance">finance</span>
-            <h1>Robust DM Factor Allocation</h1>
-            <p class="project-lead">A historical walk-forward study of robust allocation methods for developed-market equity factor indices, with explicit portfolio constraints, trading costs and sensitivity checks.</p>
+            <h1>Robust Developed-Market Factor Allocation</h1>
+            <p class="project-lead">A completed Python research package comparing five long-only allocation rules across four developed-market equity factor sleeves in a lagged, cost-aware walk-forward backtest.</p>
             <div class="project-actions">
-                <a class="button" href="https://github.com/luizgressmann/robust-dm-factor-allocation/tree/public-release" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-                <span class="project-status">In progress</span>
+                <a class="button" href="https://github.com/luizgressmann/robust-dm-factor-allocation" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                <a class="button" href="#synthetic-demo">View synthetic demo</a>
+                <span class="project-status">Completed · v1.0.0</span>
             </div>
         </header>
 
         <div class="project-detail-content">
             <section class="project-narrative-section" aria-labelledby="research-question-title">
                 <p class="project-section-label">Research question</p>
-                <h2 id="research-question-title">Can factor allocations remain useful when estimates are unstable?</h2>
-                <p>The project compares optimized combinations of five long-only DM factor indices with simple allocation rules. The objective is not to select the portfolio with the highest historical return, but to examine how sensitive allocations are to their estimation window, rebalancing schedule, weight limits and trading-cost assumption.</p>
-                <p>The used factors are Value, Momentum, Quality, Minimum Volatility and Size. For the Size factor, an Equal Weight Index was used as proxy. The MSCI World Index serves as the broad market benchmark.</p>
+                <h2 id="research-question-title">How much allocation complexity survives a fair walk-forward test?</h2>
+                <p>The project compares five portfolio rules across four long-only factor-index sleeves. It asks whether covariance-aware methods add stable risk control relative to transparent baselines once inputs are estimated only from past data, allocations are constrained and turnover costs are deducted.</p>
+                <p>The final universe contains MSCI World Enhanced Value, MSCI World Momentum, MSCI World Quality and MSCI World Small Cap. MSCI World is the broad-market benchmark and is not included in the optimizer.</p>
             </section>
 
             <section class="project-narrative-section" aria-labelledby="research-design-title">
                 <p class="project-section-label">Research design</p>
                 <h2 id="research-design-title">A historical walk-forward evaluation</h2>
-                <p>Portfolio weights are estimated from observations available up to month t and are applied to the return in month t + 1. This prevents the allocation from using the return on which it is evaluated. Besides that the excercise is historical and pseudo-out-of-sample because the full dataset was available while the research design was developed.</p>
-                <p>The main specification uses a ten-year trailing window, quarterly rebalancing, long-only fully invested portfolios, a 40% maximum weight and 10 basis points of portfolio trading costs.</p>
+                <p>Portfolio weights are estimated from observations available through month t and first applied to the return in month t + 1. This prevents direct look-ahead. The exercise remains historical and pseudo-out-of-sample because the full dataset was available while the research design was developed.</p>
+                <p>The main specification uses a ten-year trailing window, quarterly rebalancing, long-only fully invested portfolios, a 40% maximum sleeve weight and 10 basis points of one-way turnover cost.</p>
 
                 <dl class="project-spec-list" aria-label="Default research specification">
                     <div>
                         <dt>Universe</dt>
-                        <dd>Value, Momentum, Quality, Minimum Volatility and Size</dd>
+                        <dd>MSCI World Enhanced Value, MSCI World Momentum, MSCI World Quality and MSCI World Small Cap</dd>
                     </div>
                     <div>
                         <dt>Benchmark</dt>
@@ -94,7 +95,11 @@
                     </div>
                     <div>
                         <dt>Rebalancing</dt>
-                        <dd>Quarterly, with costs charged on portfolio turnover</dd>
+                        <dd>Quarterly, with costs charged against drifted pre-trade weights</dd>
+                    </div>
+                    <div>
+                        <dt>Robustness grid</dt>
+                        <dd>OAS-GMV across 60- and 120-month windows, monthly, quarterly and annual rebalancing, and 30%, 40% and 50% caps; a separate check varies costs from 0 to 10 and 25 basis points</dd>
                     </div>
                 </dl>
             </section>
@@ -118,8 +123,8 @@
                         <dd>Minimizes portfolio variance using the sample covariance matrix</dd>
                     </div>
                     <div>
-                        <dt>Shrinkage GMV</dt>
-                        <dd>Regularizes the covariance estimate to reduce sensitivity to estimation noise</dd>
+                        <dt>OAS-shrinkage GMV</dt>
+                        <dd>Uses Oracle Approximating Shrinkage to regularize the covariance estimate</dd>
                     </div>
                     <div>
                         <dt>Equal Risk Contribution</dt>
@@ -131,27 +136,60 @@
             <section class="project-narrative-section" aria-labelledby="implementation-title">
                 <p class="project-section-label">Implementation</p>
                 <h2 id="implementation-title">A reproducible Python workflow</h2>
-                <p>The implementation separates reusable portfolio logic from the notebooks. Data validation, covariance estimation, optimization, walk-forward accounting and performance metrics live in small Python modules, while the notebooks document the sequence from data preparation to robustness analysis.</p>
+                <p>The implementation separates reusable package code from four research notebooks. Data validation, covariance estimation, optimization, walk-forward accounting, inference and performance metrics live in focused Python modules; the notebooks document the sequence from data preparation to robustness analysis.</p>
                 <ul class="project-list">
                     <li>Checks for duplicate dates, missing months and invalid return values</li>
                     <li>Explicit one-month lag to prevent direct look-ahead</li>
                     <li>Turnover measured against drifted pre-trade weights, with costs applied at rebalancing dates after inception</li>
-                    <li>Synthetic unit tests covering constraints, metrics and timing</li>
-                    <li>Robustness checks across windows, rebalancing frequencies, caps and costs</li>
+                    <li>Capped-simplex optimization with explicit convergence and feasibility checks</li>
+                    <li>Automated unit and integration tests covering constraints, metrics, timing and the demo</li>
+                    <li>A fixed-seed synthetic command-line demo that exercises the same backtest path without licensed inputs</li>
                 </ul>
             </section>
 
-            <section class="project-narrative-section" aria-labelledby="interpretation-title">
-                <p class="project-section-label">Interpretation</p>
-                <h2 id="interpretation-title">What the analysis can and cannot establish</h2>
-                <p>Several factor-index histories include provider-backtested observations from before their official launch. The walk-forward structure controls the timing of the portfolio decision, but it does not turn those histories into a fully live investment record. Post-launch checks may still use pre-launch observations in their rolling estimation windows. Index returns are also theoretical and do not represent the net experience of an investable fund.</p>
-                <p>The study is limited to one provider, one base currency and one developed-market aggregate. Its conclusions should therefore be read as evidence about the behaviour of this research design, not as a universal ranking of factor-allocation methods.</p>
+            <section class="project-narrative-section project-demo-section" id="synthetic-demo" aria-labelledby="synthetic-demo-title">
+                <p class="project-section-label">Synthetic demo</p>
+                <h2 id="synthetic-demo-title">An end-to-end backtest demo, without licensed market data</h2>
+                <p>The repository includes a deterministic example that generates 180 synthetic monthly returns, runs all five portfolio methods through the package's backtest code and writes two CSV tables plus the two charts below. It is a reproducibility and implementation check—not a performance estimate.</p>
+                <pre class="project-demo-command"><code>python -m pip install -e .
+python -m robust_dm_factor_allocation.demo --output-dir results/demo</code></pre>
+
+                <ul class="project-demo-facts" aria-label="Synthetic demo details">
+                    <li>Fixed seed: 19</li>
+                    <li>180 synthetic months</li>
+                    <li>Five allocation rules</li>
+                    <li>Two charts + two CSV files</li>
+                </ul>
+
+                <div class="project-figure-list">
+                    <figure class="project-figure">
+                        <a class="project-figure-link" href="../../images/projects/robust-dm-factor-allocation/demo-wealth.png" target="_blank" rel="noopener noreferrer" aria-label="Open the synthetic walk-forward wealth chart at full size">
+                            <img src="../../images/projects/robust-dm-factor-allocation/demo-wealth.png" width="1790" height="1047" loading="lazy" decoding="async" alt="Line chart of synthetic walk-forward wealth for equal weight, inverse volatility, sample GMV, OAS GMV, equal risk contribution and a synthetic market over a ten-year evaluation period.">
+                        </a>
+                        <figcaption><strong>Synthetic walk-forward wealth.</strong> Five allocation rules and the synthetic market, using a 60-month lookback, quarterly rebalancing, a 40% cap and 10 basis points of cost. In this generated sample, the synthetic market finishes above all five allocations; the GMV variants slightly reduce volatility but also finish lowest.</figcaption>
+                    </figure>
+
+                    <figure class="project-figure">
+                        <a class="project-figure-link" href="../../images/projects/robust-dm-factor-allocation/demo-cap-sensitivity.png" target="_blank" rel="noopener noreferrer" aria-label="Open the synthetic OAS-GMV cap-sensitivity chart at full size">
+                            <img src="../../images/projects/robust-dm-factor-allocation/demo-cap-sensitivity.png" width="1541" height="975" loading="lazy" decoding="async" alt="Scatter plot of synthetic OAS-GMV information ratios grouped by 30, 40 and 50 percent maximum target weights, with horizontal median markers.">
+                        </a>
+                        <figcaption><strong>Synthetic cap sensitivity.</strong> Each point is one OAS-GMV lookback and rebalancing specification; the horizontal bar marks the median for that cap. All 12 information ratios are negative in this generated sample, and the 50% cap group has the lowest median.</figcaption>
+                    </figure>
+                </div>
             </section>
 
-            <p class="site-status project-output-status">Empirical performance results are not displayed on this website. They are generated locally from MSCI index data subject to licensing restrictions and include return series, portfolio weights, tables and figures. The public release therefore focuses on the methodology, implementation and limitations. This is an independent research project, not investment advice, and is not sponsored, endorsed or reviewed by MSCI.</p>
+            <section class="project-narrative-section" aria-labelledby="interpretation-title">
+                <p class="project-section-label">Evidence boundary</p>
+                <h2 id="interpretation-title">What these visuals do—and do not—show</h2>
+                <p>Both figures use fixed-seed synthetic returns. Their rankings and metric values are properties of this generated sample; they demonstrate timing, accounting, optimization and export behavior, but they are not evidence of investable performance.</p>
+                <p>The empirical notebooks use licensed MSCI index files. Those source files, processed returns and MSCI-derived tables, figures and portfolio weights are intentionally not published. Parts of the Momentum and Quality histories were backtested by the index provider, and the research choices were made with the available history already known.</p>
+                <p>The study is a historical comparison rather than a trading-ready strategy. It simplifies costs and leaves out taxes, market impact, fund fees and practical implementation limits.</p>
+            </section>
+
+            <p class="site-status project-output-status">The project repository keeps generated result files local and untracked. The two selected copies above are published only as portfolio-site previews and contain synthetic data; MSCI-based results remain local and are not reproduced here. This is an independent research project, not investment advice, and is not sponsored, endorsed or reviewed by MSCI.</p>
 
             <div class="project-cta">
-                <a class="button" href="https://github.com/luizgressmann/robust-dm-factor-allocation/tree/public-release" target="_blank" rel="noopener noreferrer">View project on GitHub</a>
+                <a class="button" href="https://github.com/luizgressmann/robust-dm-factor-allocation" target="_blank" rel="noopener noreferrer">View project on GitHub</a>
             </div>
         </div>
     </main>
