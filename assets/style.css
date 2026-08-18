@@ -196,6 +196,19 @@ nav a.active{
   margin-top: 16px;
 }
 
+.about-secondary a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.about-secondary a:hover {
+  color: var(--dark);
+  text-decoration-color: var(--mid);
+}
+
 .about-links {
   display: flex;
   flex-wrap: wrap;
